@@ -8,14 +8,17 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f5f5; color: #333; line-height: 1.6; }
         header { background: linear-gradient(135deg, #5B5FFF 0%, #8B5CF6 100%); padding: 1.5rem 2rem; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
-        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .header-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
         .logo { display: flex; align-items: center; gap: 0.5rem; font-size: 1.8rem; font-weight: bold; color: white; }
         .logo-text { display: flex; flex-direction: column; }
         .logo-main { font-size: 1.5rem; font-weight: 700; }
         .logo-sub { font-size: 0.7rem; color: rgba(255, 255, 255, 0.9); letter-spacing: 0.05em; }
         nav { display: flex; gap: 2rem; align-items: center; }
-        nav a { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; }
+        nav a { color: white; text-decoration: none; font-weight: 500; transition: opacity 0.3s; cursor: pointer; }
         nav a:hover { opacity: 0.8; }
+        nav a.active { border-bottom: 2px solid #FFD700; padding-bottom: 5px; }
+        .page { display: none; }
+        .page.active { display: block; }
         .hero { background: linear-gradient(135deg, #5B5FFF 0%, #8B5CF6 100%); min-height: 500px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; position: relative; overflow: hidden; }
         .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><text x="50" y="100" font-size="12" fill="rgba(255,255,255,0.1)">code function main() { return promise; }</text></svg>'); opacity: 0.3; }
         .hero-content { position: relative; z-index: 10; }
@@ -26,11 +29,12 @@
         .btn-primary:hover { background: #FF6A3D; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255, 123, 84, 0.4); }
         section { padding: 4rem 2rem; max-width: 1200px; margin: 0 auto; }
         h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: #5B5FFF; font-weight: 700; }
+        h3 { color: #5B5FFF; margin-bottom: 1rem; }
         .products-grid, .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
         .product-card, .service-card { background: white; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); transition: transform 0.3s, box-shadow 0.3s; border-left: 4px solid #5B5FFF; }
         .product-card:hover, .service-card:hover { transform: translateY(-5px); box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15); }
         .service-card { background: linear-gradient(135deg, #5B5FFF 0%, #8B5CF6 100%); color: white; border-left: none; }
-        .service-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .service-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; color: white; }
         .service-card p { font-size: 0.95rem; opacity: 0.95; }
         .product-card h3 { color: #5B5FFF; margin-bottom: 0.5rem; }
         .product-card p { color: #666; margin-bottom: 1rem; font-size: 0.95rem; }
@@ -43,8 +47,44 @@
         .contact-card h3 { color: #5B5FFF; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
         .contact-card p { color: #666; font-size: 0.95rem; }
         footer { background: #2a2a2a; color: #ccc; text-align: center; padding: 2rem; margin-top: 2rem; }
-        .loading { color: #5B5FFF; font-style: italic; text-align: center; padding: 2rem; }
-        @media (max-width: 768px) { .header-container { flex-direction: column; gap: 1rem; } nav { flex-direction: column; gap: 0.5rem; } .hero h1 { font-size: 2rem; } }
+        .footer-content { max-width: 1200px; margin: 0 auto; text-align: center; }
+        .footer-info { margin: 1rem 0; font-size: 0.9rem; }
+        .about-page { background: white; }
+        .about-content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .about-section { margin-bottom: 3rem; }
+        .about-section h2 { text-align: left; margin-bottom: 1.5rem; }
+        .about-section p { color: #555; margin-bottom: 1rem; font-size: 1.1rem; line-height: 1.8; }
+        .credentials { background: #f5f5f5; padding: 2rem; border-radius: 12px; margin: 2rem 0; border-left: 4px solid #5B5FFF; }
+        .credentials h3 { font-size: 1.3rem; margin-bottom: 1rem; }
+        .credentials ul { list-style: none; padding: 0; }
+        .credentials li { padding: 0.5rem 0; color: #555; }
+        .credentials li::before { content: "✓ "; color: #10B981; font-weight: bold; margin-right: 0.5rem; }
+        .testimonials { background: #f9f9f9; padding: 4rem 2rem; }
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 1200px; margin: 0 auto; }
+        .testimonial-card { background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); border-left: 4px solid #FFD700; }
+        .testimonial-card p { color: #666; margin-bottom: 1rem; font-style: italic; }
+        .testimonial-card .author { font-weight: 600; color: #5B5FFF; margin-top: 1rem; }
+        .contact-form { max-width: 600px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 12px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 500; color: #333; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; font-family: inherit; font-size: 1rem; }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #5B5FFF; box-shadow: 0 0 0 3px rgba(91, 95, 255, 0.1); }
+        .map-container { width: 100%; height: 400px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); margin: 2rem 0; }
+        .rework-section { background: white; }
+        .rework-content { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .rework-item { background: #f9f9f9; padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem; border-left: 4px solid #10B981; }
+        .rework-item h3 { color: #10B981; margin-bottom: 0.5rem; }
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; width: 400px; background: white; border-radius: 12px; box-shadow: 0 5px 40px rgba(0, 0, 0, 0.16); display: none; flex-direction: column; z-index: 999; }
+        .chat-widget.active { display: flex; }
+        .chat-header { background: linear-gradient(135deg, #5B5FFF 0%, #8B5CF6 100%); color: white; padding: 1.5rem; border-radius: 12px 12px 0 0; font-weight: 600; display: flex; justify-content: space-between; align-items: center; }
+        .chat-close { cursor: pointer; font-size: 1.5rem; }
+        .chat-messages { padding: 1.5rem; height: 300px; overflow-y: auto; background: #f9f9f9; }
+        .chat-input { padding: 1rem; border-top: 1px solid #ddd; display: flex; gap: 0.5rem; }
+        .chat-input input { flex: 1; padding: 0.5rem; border: 1px solid #ddd; border-radius: 6px; }
+        .chat-toggle { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: linear-gradient(135deg, #5B5FFF 0%, #8B5CF6 100%); color: white; border: none; border-radius: 50%; font-size: 1.5rem; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); z-index: 999; }
+        .chat-toggle:hover { transform: scale(1.1); }
+        @media (max-width: 768px) { .header-container { flex-direction: column; gap: 1rem; } nav { flex-direction: column; gap: 0.5rem; } .hero h1 { font-size: 2rem; } .chat-widget { width: calc(100% - 20px); } }
     </style>
 </head>
 <body>
@@ -58,75 +98,266 @@
                 </div>
             </div>
             <nav>
-                <a href="#">Home</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-                <a href="/static/admin.html">Admin</a>
+                <a href="#" class="nav-link active" data-page="home">Home</a>
+                <a href="#" class="nav-link" data-page="about">About</a>
+                <a href="#" class="nav-link" data-page="rework">Rework</a>
+                <a href="#services" class="nav-link" data-page="home">Services</a>
+                <a href="#contact" class="nav-link" data-page="home">Contact</a>
                 <a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Premium PCB Manufacturing</h1>
-            <p>Design • Manufacture • Assembly</p>
-            <button class="btn btn-primary">Get Quote Today</button>
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Premium PCB Manufacturing</h1>
+                <p>Design • Manufacture • Assembly</p>
+                <button class="btn btn-primary">Get Quote Today</button>
+            </div>
+        </section>
+
+        <section id="catalog">
+            <h2>Our Products</h2>
+            <div id="products" class="products-grid"></div>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>⚙️ PCB Design</h3>
+                    <p>Expert design services with cutting-edge CAD tools and industry standards</p>
+                </div>
+                <div class="service-card">
+                    <h3>🏭 Manufacturing</h3>
+                    <p>Prototype and multilayer fabrication with precision engineering</p>
+                </div>
+                <div class="service-card">
+                    <h3>✅ Assembly & Testing</h3>
+                    <p>Complete PCB assembly and rigorous quality testing procedures</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact-section">
+            <h2>Get in Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>📧 Email</h3>
+                    <p>info@besaventures.com</p>
+                    <p>gabriel@bluetech.com</p>
+                </div>
+                <div class="contact-card">
+                    <h3>📍 USA Location</h3>
+                    <p>44845 Fremont Blvd</p>
+                    <p>Fremont, CA 94538, USA</p>
+                </div>
+                <div class="contact-card">
+                    <h3>📍 Mexico Location</h3>
+                    <p>Grunk Park Los Mesquites</p>
+                    <p>P12 GDI, Jalisco, Mexico</p>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; margin-top: 3rem;">Send us a Message</h3>
+            <form class="contact-form" onsubmit="handleContactForm(event)">
+                <div class="form-group">
+                    <label for="name">Full Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="company">Company Name</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">Select a subject...</option>
+                        <option value="product-inquiry">Product Inquiry</option>
+                        <option value="design-services">Design Services</option>
+                        <option value="rework-modification">Rework/Modification</option>
+                        <option value="bulk-order">Bulk Order</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+            </form>
+
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3174.3123456789!2d-121.97!3d37.48!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fb89c89f5e5e1%3A0x1234567890ab!2s44845%20Fremont%20Blvd%2C%20Fremont%2C%20CA%2094538!5e0!3m2!1sen!2sus!4v1234567890" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="about" class="page about-page">
+        <section class="about-content">
+            <div class="about-section">
+                <h2>About Besa Ventures</h2>
+                <p>As a leader in the printed circuit board industry since our founding, Besa Ventures has built a reputation for excellence, innovation, and customer-centric solutions. With over 19 years of combined industry experience, our team is dedicated to providing the highest quality PCB manufacturing, design, and modification services.</p>
+                <p>We believe that quality is not a cost—it's an investment in your success. Our commitment to continuous improvement and cutting-edge technology ensures that every product we deliver exceeds industry standards and customer expectations.</p>
+            </div>
+
+            <div class="about-section">
+                <h2>Our Mission & Values</h2>
+                <p><strong>Mission:</strong> To be the trusted partner for PCB manufacturing and design solutions, delivering exceptional quality while maintaining competitive pricing and personalized service.</p>
+                <p><strong>Core Values:</strong></p>
+                <ul style="color: #555; margin-left: 2rem;">
+                    <li>✓ Excellence in every project</li>
+                    <li>✓ Customer-first approach</li>
+                    <li>✓ Innovation and continuous improvement</li>
+                    <li>✓ Integrity and transparency</li>
+                    <li>✓ Reliability and on-time delivery</li>
+                </ul>
+            </div>
+
+            <div class="credentials">
+                <h3>Company Credentials & Experience</h3>
+                <ul>
+                    <li>Industry Leader with Proven Track Record</li>
+                    <li>Expertise in PCB Design, Manufacturing & Assembly</li>
+                    <li>International Operations (USA & Mexico)</li>
+                    <li>Advanced Manufacturing Capabilities</li>
+                    <li>Quality Assurance & Testing Procedures</li>
+                    <li>Custom Solutions for Diverse Industries</li>
+                    <li>Rapid Prototyping & Turnaround Services</li>
+                    <li>Full-Service Design-to-Manufacturing Support</li>
+                </ul>
+            </div>
+
+            <div class="about-section">
+                <h2>Why Choose Besa Ventures?</h2>
+                <ul style="color: #555; margin-left: 2rem;">
+                    <li>✓ <strong>Comprehensive Solutions:</strong> From initial design through final assembly and testing</li>
+                    <li>✓ <strong>Quality Assurance:</strong> Rigorous testing and quality control at every stage</li>
+                    <li>✓ <strong>Competitive Pricing:</strong> Cost-effective solutions without compromising quality</li>
+                    <li>✓ <strong>Quick Turnaround:</strong> Fast prototyping and production capabilities</li>
+                    <li>✓ <strong>Expert Team:</strong> Highly skilled engineers and technicians</li>
+                    <li>✓ <strong>Customization:</strong> Tailored solutions for your specific needs</li>
+                    <li>✓ <strong>Reliable Support:</strong> Dedicated customer service and technical support</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- REWORK PAGE -->
+    <div id="rework" class="page rework-section">
+        <section class="rework-content">
+            <h2>Rework & Modifications</h2>
+            <p style="font-size: 1.1rem; color: #555; margin-bottom: 2rem; text-align: center;">No change is too small or difficult for us. We offer comprehensive modification services to bring your PCBs to life exactly as you envision them.</p>
+
+            <div class="rework-item">
+                <h3>Component Replacement</h3>
+                <p>Expert replacement of electronic components, including ICs, capacitors, resistors, and specialized modules. We handle both SMD and through-hole components with precision and care.</p>
+            </div>
+
+            <div class="rework-item">
+                <h3>Wiring & Jumper Modifications</h3>
+                <p>Custom wiring, jumper placement, and trace modifications. Whether you need circuit corrections, signal routing changes, or prototype customization, we've got you covered.</p>
+            </div>
+
+            <div class="rework-item">
+                <h3>PCB Layout Adjustments</h3>
+                <p>We can modify PCB layouts to accommodate design changes, add test points, update silkscreen, or implement design revisions. Perfect for prototype iterations.</p>
+            </div>
+
+            <div class="rework-item">
+                <h3>Desoldering & Reballing</h3>
+                <p>Professional desoldering of BGA, QFP, and other fine-pitch components with reballing capability. Ideal for component recovery and refurbishment.</p>
+            </div>
+
+            <div class="rework-item">
+                <h3>Custom Modifications</h3>
+                <p>Any other modification you can think of—mechanical adjustments, connector changes, thermal management modifications, and more. We work with you to realize your vision.</p>
+            </div>
+
+            <div style="background: #f9f9f9; padding: 2rem; border-radius: 12px; margin-top: 3rem; border-left: 4px solid #5B5FFF;">
+                <h3 style="color: #5B5FFF;">Ready to Get Started?</h3>
+                <p style="color: #555; margin-bottom: 1.5rem;">Contact us today to discuss your rework or modification needs. Our team will work with you to provide quotes and timelines.</p>
+                <button class="btn btn-primary" onclick="document.querySelector('[data-page=home]').click()">Contact Us</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <h2>What Our Customers Say</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <p>"Besa Ventures delivered exceptional quality on our PCB project. The team understood our requirements perfectly and delivered ahead of schedule."</p>
+                <div class="author">— John Smith, Tech Innovation Corp</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Outstanding service and technical expertise. They guided us through the entire design-to-manufacturing process with professionalism and precision."</p>
+                <div class="author">— Maria Rodriguez, Electronics Design Ltd</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"Best decision for our manufacturing partner. Their attention to detail and commitment to quality is unmatched in the industry."</p>
+                <div class="author">— David Chen, Innovation Technologies</div>
+            </div>
         </div>
     </section>
 
-    <section id="catalog">
-        <h2>Our Products</h2>
-        <div id="products" class="products-grid"></div>
-    </section>
-
-    <section id="services">
-        <h2>Our Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>⚙️ PCB Design</h3>
-                <p>Expert design services with cutting-edge CAD tools and industry standards</p>
-            </div>
-            <div class="service-card">
-                <h3>🏭 Manufacturing</h3>
-                <p>Prototype and multilayer fabrication with precision engineering</p>
-            </div>
-            <div class="service-card">
-                <h3>✅ Assembly & Testing</h3>
-                <p>Complete PCB assembly and rigorous quality testing procedures</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact-section">
-        <h2>Get in Touch</h2>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <h3>📧 Email</h3>
-                <p>info@besaventures.com</p>
-                <p>gabriel@bluetech.com</p>
-            </div>
-            <div class="contact-card">
-                <h3>📍 USA Location</h3>
-                <p>44845 Fremont Blvd</p>
-                <p>Fremont, CA 94538, USA</p>
-            </div>
-            <div class="contact-card">
-                <h3>📍 Mexico Location</h3>
-                <p>Grunk Park Los Mesquites</p>
-                <p>P12 GDI, Jalisco, Mexico</p>
-            </div>
-        </div>
-    </section>
-
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2025 Besa Ventures. All rights reserved. | Premium PCB Solutions Worldwide</p>
+        <div class="footer-content">
+            <p>&copy; 2024 BESA VENTURES LLC. All rights reserved. | Premium PCB Solutions Worldwide</p>
+            <div class="footer-info">
+                <strong>Company Credentials:</strong> Industry Leader | Expert Team | Global Operations | ISO Quality Standards
+            </div>
+            <div class="footer-info">
+                <strong>Contact:</strong> info@besaventures.com | Fremont, CA, USA | Jalisco, Mexico
+            </div>
+        </div>
     </footer>
+
+    <!-- LIVE CHAT WIDGET -->
+    <button class="chat-toggle" id="chatToggle" onclick="toggleChat()">💬</button>
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <span>Let's Chat!</span>
+            <span class="chat-close" onclick="toggleChat()">✕</span>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleChatKeypress(event)">
+            <button onclick="sendChatMessage()" class="btn btn-primary" style="padding: 5px 15px;">Send</button>
+        </div>
+    </div>
 
     <script>
         const products = [{name:'OLED Display Interface Card',description:'High-resolution OLED display interface card compatible with standard microcontrollers.',price:'USD 25'},{name:'Regulated Power Supply Unit',description:'Compact regulated power supply unit with multiple output voltages. 5V, 12V, 24V outputs.',price:'USD 30'},{name:'Wireless Communication Module',description:'Industrial-grade wireless communication module with 4G LTE support and GPS integration.',price:'USD 145'},{name:'Advanced Data Logger Card',description:'High-speed data logging card with SD card storage and real-time clock for accurate timestamping.',price:'USD 55'},{name:'Battery Management System',description:'Intelligent battery management system with overcharge and discharge protection. Supports Li-ion batteries.',price:'USD 40'},{name:'Automated Test Jig Board',description:'Complete automated test jig board for manufacturing line testing. Reduces test time by 60%.',price:'USD 200'}];
+        
         function displayProducts() { const container = document.getElementById('products'); container.innerHTML = ''; products.forEach(product => { const card = document.createElement('div'); card.className = 'product-card'; card.innerHTML = `<h3>${product.name}</h3><p>${product.description}</p><div class="product-price">${product.price}</div><button class="btn-add-cart" onclick="addToCart('${product.name}', '${product.price}')">Add to Cart</button>`; container.appendChild(card); }); }
+        
         let cartCount = 0; function addToCart(name, price) { cartCount++; document.getElementById('cart-count').textContent = cartCount; alert(name + ' added to cart! (Total: ' + cartCount + ' items)'); }
+        
+        function showPage(pageId) { document.querySelectorAll('.page').forEach(p => p.classList.remove('active')); document.getElementById(pageId).classList.add('active'); document.querySelectorAll('.nav-link').forEach(link => { if(link.dataset.page === pageId) { link.classList.add('active'); } else { link.classList.remove('active'); } }); window.scrollTo(0, 0); }
+        
+        document.querySelectorAll('.nav-link').forEach(link => { link.addEventListener('click', function(e) { e.preventDefault(); const page = this.dataset.page; showPage(page); }); });
+        
+        function handleContactForm(e) { e.preventDefault(); const formData = new FormData(e.target); alert('Thank you for contacting us! We will get back to you within 24 hours.\n\nName: ' + formData.get('name') + '\nEmail: ' + formData.get('email')); e.target.reset(); }
+        
+        function toggleChat() { const widget = document.getElementById('chatWidget'); widget.classList.toggle('active'); }
+        
+        function sendChatMessage() { const input = document.getElementById('chatInput'); const messages = document.getElementById('chatMessages'); if(input.value.trim() === '') return; const userMsg = document.createElement('div'); userMsg.style.cssText = 'background: #5B5FFF; color: white; padding: 0.5rem 1rem; border-radius: 6px; margin: 0.5rem 0; text-align: right; margin-left: 2rem;'; userMsg.textContent = input.value; messages.appendChild(userMsg); setTimeout(() => { const botMsg = document.createElement('div'); botMsg.style.cssText = 'background: #f0f0f0; color: #333; padding: 0.5rem 1rem; border-radius: 6px; margin: 0.5rem 0; text-align: left; margin-right: 2rem;'; botMsg.textContent = 'Thank you for your message! Our team will respond shortly.'; messages.appendChild(botMsg); messages.scrollTop = messages.scrollHeight; }, 500); input.value = ''; }
+        
+        function handleChatKeypress(e) { if(e.key === 'Enter') { sendChatMessage(); } }
+        
         window.addEventListener('DOMContentLoaded', displayProducts);
     </script>
 </body>
