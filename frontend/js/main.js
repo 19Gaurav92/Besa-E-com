@@ -37,7 +37,8 @@ function removeFromCart(productId) {
 
 async function loadProducts() {
   try {
-    const res = await fetch('https://cdn.jsdelivr.net/gh/19Gaurav92/Besa-E-com@main/products.json');    const products = await res.json();
+    const res = await fetch('https://cdn.jsdelivr.net/gh/19Gaurav92/Besa-E-com@main/products.json');
+    const products = await res.json();
     const wrap = document.getElementById('products');
     if (!wrap) return;
     
@@ -45,16 +46,13 @@ async function loadProducts() {
     products.forEach(p => {
       const div = document.createElement('div');
       div.className = 'product-card';
-      const taxAmount = (p.price * 0.18).toFixed(2);
-      const totalPrice = (p.price * 1.18).toFixed(2);
       
       div.innerHTML = `
         <div class="product-image">📦</div>
         <div class="product-info">
           <h3 class="product-name">${p.title}</h3>
           <p style="font-size:0.85rem;color:#666;margin:0.3rem 0;">${p.description || ''}</p>
-          <div class="product-price">₹${p.price.toFixed(2)} + ₹${taxAmount} GST</div>
-          <div style="font-weight:bold;color:#0066cc;">Total: ₹${totalPrice}</div>
+          <div class="product-price">$${p.price.toFixed(2)}</div>
           <button class="add-to-cart-btn" onclick="addToCart({id:'${p.id}', title:'${p.title}', price:${p.price}})">Add to Cart</button>
         </div>
       `;
@@ -80,16 +78,13 @@ function showCartModal() {
     subtotal += item.price;
     const itemDiv = document.createElement('div');
     itemDiv.className = 'cart-item';
-    itemDiv.innerHTML = `<h4>${item.title}</h4><p>₹${item.price}</p><button class="remove-btn" onclick="removeFromCart('${item.id}');showCartModal();">Remove</button>`;
+    itemDiv.innerHTML = `<h4>${item.title}</h4><p>$${item.price.toFixed(2)}</p><button class="remove-btn" onclick="removeFromCart('${item.id}');showCartModal();">Remove</button>`;
     itemsDiv.appendChild(itemDiv);
   });
   
-  if (cart.length === 0) itemsDiv.innerHTML = '<p>Empty cart</p>';
+  if (cart.length === 0) itemsDiv.innerHTML = '<p style="text-align:center;padding:1rem;">Your cart is empty</p>';
   
-  const gst = (subtotal * 0.18).toFixed(2);
-  const total = (subtotal * 1.18).toFixed(2);
-  
-  totalDiv.innerHTML = `<div>Subtotal: ₹${subtotal}</div><div>GST (18%): ₹${gst}</div><div style="font-weight:bold;">Total: ₹${total}</div><button class="checkout-btn" onclick="checkout()">Checkout</button>`;
+  totalDiv.innerHTML = `<div style="font-weight:bold;font-size:1.1rem;">Total: $${subtotal.toFixed(2)}</div><button class="checkout-btn" onclick="checkout()">Checkout</button>`;
   
   modal.style.display = 'block';
   modal.onclick = (e) => { if (e.target === modal) modal.style.display = 'none'; };
@@ -98,7 +93,7 @@ function showCartModal() {
 function checkout() {
   const cart = getCart();
   if (!cart.length) { alert('Cart is empty'); return; }
-  alert('Order placed! Thank you!');
+  alert('Order placed! Thank you for your purchase. Our team will contact you within 24 hours.');
   localStorage.setItem(CART_KEY, '[]');
   updateCount();
   document.getElementById('cart-modal').style.display = 'none';
