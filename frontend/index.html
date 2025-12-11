@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,524 +16,386 @@
             --secondary: #16213e;
             --accent: #0f3460;
             --gold: #d4af37;
-            --light: #eaeaea;
             --text: #f0f0f0;
             --success: #2ecc71;
         }
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             color: var(--text);
             line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             padding: 1.5rem 0;
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 2px solid var(--gold);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
         }
 
         .header-container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
-        .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-img {
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle at 30% 30%, #4ade80, #22c55e);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            font-weight: bold;
-            color: white;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-        }
-
-        .brand-text h1 {
+        .logo {
             font-size: 1.8rem;
-            color: var(--gold);
-            font-weight: 700;
-            letter-spacing: 1px;
+            font-weight: bold;
+            background: linear-gradient(135deg, var(--gold) 0%, #f0e68c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        .brand-text p {
-            font-size: 0.75rem;
-            color: #b0b0b0;
-            margin-top: 2px;
-        }
-
-        nav {
+        .nav-right {
             display: flex;
-            gap: 2.5rem;
+            gap: 1.5rem;
             align-items: center;
-        }
-
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-bottom: 3px;
-        }
-
-        nav a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover:after {
-            width: 100%;
-        }
-
-        nav a:hover {
-            color: var(--gold);
         }
 
         .cart-icon {
-            background: var(--accent);
-            padding: 10px 15px;
-            border-radius: 5px;
+            font-size: 1.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
-            border: 1px solid var(--gold);
+            position: relative;
+            transition: transform 0.2s;
         }
 
         .cart-icon:hover {
-            background: var(--gold);
-            color: var(--primary);
+            transform: scale(1.1);
         }
 
         .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
             background: var(--success);
-            color: white;
+            color: var(--primary);
             border-radius: 50%;
-            width: 22px;
-            height: 22px;
-            display: inline-flex;
+            width: 20px;
+            height: 20px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: bold;
-            margin-left: 5px;
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
         }
 
         .hero {
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.8) 100%), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%2322c55e;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%23059669;stop-opacity:0.05"/></linearGradient></defs><rect fill="url(%23g1)" width="1200" height="600"/><g stroke="%2322c55e" stroke-width="2" opacity="0.15"><path d="M100,100 L200,150 L250,100"/><path d="M300,200 L400,250 L450,200"/><path d="M500,150 L600,200 L700,150"/>ircle cx="150" cy="250" r="30"/>ircle cx="400" cy="350" r="40"/>ircle cx="800" cy="300" r="50"/>ircle cx="1050" cy="400" r="35"/></g><text x="600" y="300" font-size="60" font-weight="bold" fill="%2322c55e" opacity="0.05" text-anchor="middle">PCB EXCELLENCE</text></svg>');
-            background-size: cover;
-            background-position: center;
-            color: var(--text);
-            padding: 150px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 0 auto;
+            margin-bottom: 3rem;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-        }
-
-        .hero .tagline {
-            font-size: 1.3rem;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
             color: var(--gold);
-            margin-bottom: 30px;
-            font-weight: 300;
-            letter-spacing: 1px;
         }
 
         .hero p {
-            font-size: 1.1rem;
-            margin-bottom: 30px;
-            color: #d0d0d0;
-            line-height: 1.8;
+            font-size: 1.2rem;
+            color: #b0b0b0;
         }
 
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: linear-gradient(135deg, var(--gold) 0%, #f0e5a8 100%);
-            color: var(--primary);
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
-            border: none;
-            cursor: pointer;
+        .filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        section {
-            padding: 80px 20px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-        }
-
-        section h2 {
-            font-size: 2.5rem;
+        .filter-btn {
+            padding: 0.7rem 1.5rem;
+            border: 2px solid var(--gold);
+            background: transparent;
             color: var(--gold);
-            margin-bottom: 40px;
-            text-align: center;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            cursor: pointer;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gold);
+            color: var(--primary);
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
         .product-card {
             background: linear-gradient(135deg, var(--secondary) 0%, var(--accent) 100%);
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid var(--gold);
+            transition: all 0.3s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
             display: flex;
             flex-direction: column;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--gold);
-            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(212, 175, 55, 0.3);
         }
 
         .product-image {
             width: 100%;
-            height: 250px;
-            background: radial-gradient(circle, #22c55e 0%, #059669 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 80px;
-            color: rgba(255,255,255,0.3);
+            height: 200px;
+            object-fit: cover;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
 
         .product-info {
-            padding: 25px;
+            padding: 1.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
 
-        .product-name {
-            font-size: 1.3rem;
+        .product-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
             color: var(--gold);
-            font-weight: 600;
-            margin-bottom: 10px;
         }
 
-        .product-desc {
-            color: #c0c0c0;
-            font-size: 0.95rem;
-            margin-bottom: 15px;
+        .product-description {
+            font-size: 0.85rem;
+            color: #b0b0b0;
+            margin-bottom: 1rem;
             flex-grow: 1;
         }
 
-        .product-price {
-            font-size: 1.8rem;
-            color: var(--gold);
-            font-weight: 700;
-            margin-bottom: 15px;
+        .product-meta {
+            font-size: 0.8rem;
+            color: #909090;
+            margin-bottom: 1rem;
+            display: flex;
+            justify-content: space-between;
         }
 
-        .add-to-cart {
-            background: linear-gradient(135deg, var(--gold) 0%, #f0e5a8 100%);
-            color: var(--primary);
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--success);
+            margin-bottom: 1rem;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 0.7rem;
             border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        .add-to-cart:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        .btn-add {
+            background: var(--gold);
+            color: var(--primary);
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+        .btn-add:hover {
+            background: #f0e68c;
+            transform: scale(1.02);
         }
 
-        .service-card {
-            background: rgba(212, 175, 55, 0.05);
-            border: 2px solid var(--gold);
-            border-radius: 8px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            background: rgba(212, 175, 55, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-        }
-
-        .service-card h3 {
+        .btn-view {
+            background: transparent;
             color: var(--gold);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-
-        .service-card p {
-            color: #b0b0b0;
-            line-height: 1.7;
-        }
-
-        .about-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .about-content h3 {
-            color: var(--gold);
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-
-        .about-content p {
-            color: #b0b0b0;
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .about-features {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .feature {
-            background: rgba(212, 175, 55, 0.1);
-            padding: 20px;
-            border-radius: 5px;
-            border-left: 4px solid var(--gold);
-        }
-
-        .feature-title {
-            color: var(--gold);
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-
-        .feature-text {
-            font-size: 0.9rem;
-            color: #a0a0a0;
-        }
-
-        .about-image {
-            background: radial-gradient(circle, #22c55e 0%, #059669 100%);
-            border-radius: 10px;
-            height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 100px;
-            opacity: 0.3;
-        }
-
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-        }
-
-        .contact-info {
-            display: grid;
-            gap: 30px;
-        }
-
-        .location {
-            background: rgba(212, 175, 55, 0.05);
             border: 1px solid var(--gold);
-            border-radius: 8px;
-            padding: 25px;
         }
 
-        .location h4 {
-            color: var(--gold);
-            margin-bottom: 10px;
+        .btn-view:hover {
+            background: var(--gold);
+            color: var(--primary);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 3rem;
             font-size: 1.2rem;
-        }
-
-        .location p {
-            color: #b0b0b0;
-            margin-bottom: 5px;
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 20px;
-        }
-
-        .form-group {
-            display: grid;
-            gap: 5px;
-        }
-
-        .form-group label {
             color: var(--gold);
-            font-weight: 500;
-            font-size: 0.95rem;
         }
 
-        .form-group input,
-        .form-group textarea {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid var(--accent);
-        background: var(--secondary);
-        color: var(--text);
-        font-size: 1rem;
-    }
+        .error-msg {
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+            color: #e74c3c;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #b0b0b0;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <h1>Besa Ventures</h1>
-                <p>Premium PCB Solutions & Electronics</p>
+        <div class="header-container">
+            <div class="logo">🔌 Besa Ventures</div>
+            <div class="nav-right">
+                <div class="cart-icon" onclick="alert('Cart feature coming soon!')">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </div>
             </div>
         </div>
     </header>
 
-    <section>
-        <div class="container">
-            <section class="hero">
-                <h2>Welcome to Besa Ventures</h2>
-                <p>Your trusted partner for high-quality PCB solutions and electronic components</p>
-                <button class="btn btn-primary">Explore Products</button>
-            </section>
+    <div class="main-container">
+        <div class="hero">
+            <h1>Premium PCB Solutions & Electronics</h1>
+            <p>Industrial-grade components for your projects</p>
         </div>
-    </section>
 
-    <section class="products-section">
-        <div class="container">
-            <h2>Our Products</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <h3>PCB Manufacturing</h3>
-                    <p>High-precision PCB boards for various applications</p>
-                    <span class="price">$50 - $500</span>
-                </div>
-                <div class="product-card">
-                    <h3>Component Assembly</h3>
-                    <p>Expert component placement and soldering services</p>
-                    <span class="price">$100 - $1000</span>
-                </div>
-                <div class="product-card">
-                    <h3>Electronic Components</h3>
-                    <p>Wide range of quality electronic components in stock</p>
-                    <span class="price">$10 - $500</span>
-                </div>
-                <div class="product-card">
-                    <h3>Design Services</h3>
-                    <p>Professional PCB design and layout services</p>
-                    <span class="price">$200 - $5000</span>
-                </div>
-            </div>
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+            <button class="filter-btn" onclick="filterProducts('pcb')">PCB</button>
+            <button class="filter-btn" onclick="filterProducts('modules')">Modules</button>
+            <button class="filter-btn" onclick="filterProducts('under100')">Under $100</button>
         </div>
-    </section>
 
-    <section>
-        <div class="container">
-            <h2>Contact Us</h2>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary">Send Message</button>
-            </form>
-        </div>
-    </section>
+        <div id="errorMsg"></div>
+        <div id="loadingMsg" class="loading">Loading products...</div>
+        <div id="productsContainer" class="products-grid" style="display: none;"></div>
+    </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Besa Ventures. All rights reserved.</p>
-        </div>
-    </footer>
+    <script>
+        let allProducts = [];
+
+        async function fetchProducts() {
+            try {
+                const response = await fetch('/products');
+                if (!response.ok) throw new Error('Failed to fetch products');
+                allProducts = await response.json();
+                displayProducts(allProducts);
+            } catch (error) {
+                console.error('Error:', error);
+                document.getElementById('loadingMsg').style.display = 'none';
+                document.getElementById('errorMsg').innerHTML = `
+                    <div class="error-msg">
+                        Failed to load products. Please try again later.
+                    </div>
+                `;
+            }
+        }
+
+        function displayProducts(products) {
+            const container = document.getElementById('productsContainer');
+            document.getElementById('loadingMsg').style.display = 'none';
+
+            if (!products || products.length === 0) {
+                container.innerHTML = '<div class="empty-state">No products found</div>';
+                container.style.display = 'block';
+                return;
+            }
+
+            container.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.title}" class="product-image">
+                    <div class="product-info">
+                        <div class="product-title">${product.title}</div>
+                        <div class="product-description">${product.description}</div>
+                        <div class="product-meta">
+                            <span>Lead time: ${product.lead_time}</span>
+                            <span>Min order: ${product.min_order}</span>
+                        </div>
+                        <div class="product-price">${product.currency} ${product.price}</div>
+                        <div class="product-actions">
+                            <button class="btn btn-add" onclick="addToCart('${product.id}', '${product.title}', ${product.price})">Add to Cart</button>
+                            <button class="btn btn-view" onclick="viewDetails('${product.id}')">Details</button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            container.style.display = 'grid';
+        }
+
+        function filterProducts(category) {
+            let filtered = allProducts;
+
+            if (category === 'pcb') {
+                filtered = allProducts.filter(p => p.title.toLowerCase().includes('pcb'));
+            } else if (category === 'modules') {
+                filtered = allProducts.filter(p => p.title.toLowerCase().includes('module'));
+            } else if (category === 'under100') {
+                filtered = allProducts.filter(p => p.price < 100);
+            }
+
+            // Update active button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            displayProducts(filtered);
+        }
+
+        function addToCart(productId, title, price) {
+            // Update cart count
+            const cartCount = document.getElementById('cartCount');
+            cartCount.textContent = parseInt(cartCount.textContent) + 1;
+            alert(`Added "${title}" to cart! Price: $${price}`);
+        }
+
+        function viewDetails(productId) {
+            const product = allProducts.find(p => p.id === productId);
+            if (product) {
+                alert(`${product.title}\n\nPrice: $${product.price}\nLead Time: ${product.lead_time}\nMin Order: ${product.min_order}\n\nDescription: ${product.description}\n\nCompany: ${product.company}\nEmail: ${product.company_email}\nAddress: ${product.company_address}`);
+            }
+        }
+
+        // Load products on page load
+        window.addEventListener('DOMContentLoaded', fetchProducts);
+    </script>
 </body>
 </html>
