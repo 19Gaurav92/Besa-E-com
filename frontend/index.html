@@ -358,7 +358,14 @@
         
         function handleChatKeypress(e) { if(e.key === 'Enter') { sendChatMessage(); } }
         
-        window.addEventListener('DOMContentLoaded', displayProducts);
+        // Load products with guaranteed DOM readiness
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', displayProducts);
+} else {
+  // DOM already loaded
+  displayProducts();
+}
+window.addEventListener('load', displayProducts);
     </script>
 </body>
 </html>
