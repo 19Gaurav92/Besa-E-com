@@ -37,8 +37,7 @@ function removeFromCart(productId) {
 
 async function loadProducts() {
   try {
-    const res = await fetch('https://raw.githubusercontent.com/19Gaurav92/Besa-E-com/main/products.json');
-    const products = await res.json();
+    const res = await fetch('https://cdn.jsdelivr.net/gh/19Gaurav92/Besa-E-com@main/products.json');    const products = await res.json();
     const wrap = document.getElementById('products');
     if (!wrap) return;
     
