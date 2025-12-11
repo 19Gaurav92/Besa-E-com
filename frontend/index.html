@@ -1,0 +1,64 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Besa Ventures — PCB Services</title>
+  <link rel="stylesheet" href="/static/css/styles.css"/>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <h1>Besa Ventures</h1>
+    <p>Complete Printed Circuit Boards Solutions</p>
+    <nav>
+      <a href="/">Home</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+      <a href="/static/admin.html">Admin</a>
+      <a id="cart-link" href="#">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <img src="https://static.wixstatic.com/media/edec463db80148db9525ac2c1efb9ce3.jpg" alt="PCB hero"/>
+  <h2>Design • Manufacture • Assembly</h2>
+</section>
+
+<section class="container" id="catalog">
+  <h2>Products</h2>
+  <div id="products" class="grid">Loading…</div>
+</section>
+
+<section class="container" id="services">
+  <h2>Our Services</h2>
+  <ul>
+    <li>PCB Design</li>
+    <li>Prototype & Multilayer Fabrication</li>
+    <li>PCB Assembly & Testing</li>
+  </ul>
+</section>
+
+<section class="container" id="contact">
+  <h2>Contact</h2>
+  <p>info@besaventures.com • gabriel@blue1tech.com</p>
+  <p>44845 Fremont Blvd, Fremont, CA 94538, USA</p>
+  <p>Grunk Park Los Mesquites P12 GDl Jalisco Mexico</p>
+</section>
+
+<!-- Cart Modal -->
+<div id="cart-modal" class="hidden modal">
+  <div class="modal-content">
+    <h3>Your Cart</h3>
+    <div id="cart-items"></div>
+    <div id="cart-total"></div>
+    <button id="close-cart">Close</button>
+  </div>
+</div>
+
+<script src="/static/js/main.js"></script>
+</body>
+</html>
