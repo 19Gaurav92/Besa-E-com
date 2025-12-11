@@ -372,9 +372,13 @@
 
     <script>
         // Fetch and display products
+                const productsData = [{name:'OLED Display Interface Card',description:'High-resolution OLED display interface card compatible with standard microcontrollers.',price:'USD 25'},{name:'Regulated Power Supply Unit',description:'Compact regulated power supply unit with multiple output voltages. 5V, 12V, 24V outputs.',price:'USD 30'},{name:'Wireless Communication Module',description:'Industrial-grade wireless communication module with 4G LTE support and GPS integration.',price:'USD 145'},{name:'Advanced Data Logger Card',description:'High-speed data logging card with SD card storage and real-time clock for accurate timestamping.',price:'USD 55'},{name:'Battery Management System',description:'Intelligent battery management system with overcharge and discharge protection. Supports Li-ion batteries.',price:'USD 40'},{name:'Automated Test Jig Board',description:'Complete automated test jig board for manufacturing line testing. Reduces test time by 60%.',price:'USD 200'}];376
+        
         async function loadProducts() {
-            try {
-                const response = await fetch('https://cdn.jsdelivr.net/gh/19Gaurav92/Besa-E-com@main/products.json');
+            const response = await fetch('https://cdn.jsdelivr.net/gh/19Gaurav92/Besa-E-com@main/products.json');
+                const products = await response.json();    const products = productsData;try {
+                374
+                    ('https://cdn.jsdelivr.net/gh/19Gaurav92/Besa-E-com@main/products.json');
                 const products = await response.json();
                 const productsContainer = document.getElementById('products');
                 productsContainer.innerHTML = '';
