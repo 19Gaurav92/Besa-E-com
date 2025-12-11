@@ -1,260 +1,352 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Besa Ventures - PCB Services | Professional Electronics Solutions</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f4f4f4;
-        }
-        
-        header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        h1 {
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1.5rem;
-            transition: opacity 0.3s;
-            font-weight: 500;
-        }
-        
-        nav a:hover {
-            opacity: 0.8;
-        }
-        
-        .tagline {
-            font-size: 0.9rem;
-            margin-top: 0.5rem;
-            opacity: 0.9;
-        }
-        
-        .hero {
-            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)), 
-                        url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=500&fit=crop') center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 20px;
-        }
-        
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #ff6b6b;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 1rem;
-            transition: background 0.3s;
-            text-decoration: none;
-        }
-        
-        .cta-button:hover {
-            background: #ff5252;
-        }
-        
-        section {
-            padding: 60px 20px;
-            background: white;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
-        
-        section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            color: #667eea;
-            text-align: center;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
-        }
-        
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-box {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .contact-box h3 {
-            color: #667eea;
-            margin-bottom: 0.5rem;
-        }
-        
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .loading {
-            text-align: center;
-            padding: 2rem;
-            color: #667eea;
-            font-style: italic;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Besa Ventures - Electronics Store</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+    
+    nav a:hover {
+      opacity: 0.8;
+    }
+    
+    .cart-badge {
+      background: #ff6b6b;
+      padding: 0.3rem 0.6rem;
+      border-radius: 12px;
+      font-size: 0.9rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 4rem 0;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      color: #333;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    
+    .product-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+    
+    .product-info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    
+    .product-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    
+    .product-description {
+      font-size: 0.85rem;
+      color: #666;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+    
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+    
+    .add-to-cart-btn {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    
+    .add-to-cart-btn:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    
+    .cart-modal {
+      position: fixed;
+      top: 0;
+      right: -400px;
+      width: 400px;
+      height: 100vh;
+      background: white;
+      z-index: 200;
+      box-shadow: -4px 0 15px rgba(0,0,0,0.2);
+      transition: right 0.3s;
+      overflow-y: auto;
+      padding: 2rem;
+    }
+    
+    .cart-modal.open {
+      right: 0;
+    }
+    
+    .cart-modal h2 {
+      color: #667eea;
+      margin-bottom: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .close-cart {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+    }
+    
+    .cart-item {
+      padding: 1rem 0;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .cart-item h4 {
+      font-size: 0.95rem;
+      color: #333;
+    }
+    
+    .cart-item p {
+      color: #667eea;
+      font-weight: bold;
+    }
+    
+    .remove-btn {
+      background: #ff6b6b;
+      color: white;
+      border: none;
+      padding: 0.4rem 0.8rem;
+      border-radius: 3px;
+      cursor: pointer;
+      font-size: 0.85rem;
+    }
+    
+    .cart-total {
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 2px solid #eee;
+    }
+    
+    .total-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .total-amount {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #667eea;
+      margin-bottom: 1rem;
+    }
+    
+    .checkout-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.2s;
+    }
+    
+    .checkout-btn:hover {
+      transform: scale(1.02);
+    }
+    
+    .empty-cart {
+      text-align: center;
+      padding: 2rem 0;
+      color: #999;
+    }
+    
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+    
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.3);
+      z-index: 150;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+    
+    .overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div>
-                <h1>🚀 Besa Ventures</h1>
-                <p class="tagline">Professional PCB Services & Electronics Solutions</p>
-            </div>
-            <nav>
-                <a href="#">Home</a>
-                <a href="#services">Services</a>
-                <a href="#contact">Contact</a>
-                <a href="/static/admin.html">Admin</a>
-                <a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero">
-        <h2>Premium PCB Manufacturing</h2>
-        <p>Design • Manufacture • Assembly</p>
-        <button class="cta-button">Get Quote Today</button>
-    </section>
-
-    <section class="container" id="catalog">
-        <h2>Our Products</h2>
-        <div id="products" class="grid">
-            <div class="loading">Loading innovative PCB solutions...</div>
-        </div>
-    </section>
-
-    <section class="container" id="services">
-        <h2>Our Services</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>⚙️ PCB Design</h3>
-                <p>Expert design services with cutting-edge CAD tools and industry standards</p>
-            </div>
-            <div class="card">
-                <h3>🏭 Manufacturing</h3>
-                <p>Prototype and multilayer fabrication with precision engineering</p>
-            </div>
-            <div class="card">
-                <h3>✅ Assembly & Testing</h3>
-                <p>Complete PCB assembly and rigorous quality testing procedures</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="container" id="contact">
-        <h2>Get in Touch</h2>
-        <div class="contact-info">
-            <div class="contact-box">
-                <h3>📧 Email</h3>
-                <p>info@besaventures.com</p>
-                <p>gabriel@bluetech.com</p>
-            </div>
-            <div class="contact-box">
-                <h3>📍 USA Location</h3>
-                <p>44845 Fremont Blvd</p>
-                <p>Fremont, CA 94538, USA</p>
-            </div>
-            <div class="contact-box">
-                <h3>📍 Mexico Location</h3>
-                <p>Grunk Park Los Mesquites</p>
-                <p>P12 GDI, Jalisco, Mexico</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Cart Modal -->
-    <div id="cart-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000;">
-        <div style="background:white; position:absolute; right:0; top:0; width:400px; height:100%; padding:2rem; overflow-y:auto;">
-            <h3>Your Cart</h3>
-            <div id="cart-items"></div>
-            <div id="cart-total" style="margin-top:1rem; padding-top:1rem; border-top:2px solid #eee;"></div>
-            <button onclick="document.getElementById('cart-modal').style.display='none'" style="margin-top:1rem; padding:10px 20px; width:100%; background:#667eea; color:white; border:none; border-radius:5px; cursor:pointer;">Close</button>
-        </div>
+  <header>
+    <div class="header-container">
+      <div class="logo">🛒 Besa Ventures Store</div>
+      <nav>
+        <a href="#products">Products</a>
+        <a href="#" id="cart-link">Cart <span class="cart-badge" id="cart-count">0</span></a>
+      </nav>
     </div>
-
-    <footer>
-        <p>&copy; 2025 Besa Ventures. All rights reserved. | Premium PCB Solutions Worldwide</p>
-    </footer>
-
-    <script src="/static/js/main.js"></script>
+  </header>
+  
+  <section class="hero">
+    <div class="container">
+      <h1>Premium Electronics & Components</h1>
+      <p>Quality products delivered fast to your door</p>
+    </div>
+  </section>
+  
+  <main class="container">
+    <section id="products">
+      <h2 class="section-title">Our Products</h2>
+      <div class="products-grid" id="products"></div>
+    </section>
+  </main>
+  
+  <div class="overlay" id="overlay"></div>
+  
+  <div class="cart-modal" id="cart-modal">
+    <h2>
+      Your Cart
+      <button class="close-cart" onclick="closeCart()">✕</button>
+    </h2>
+    <div id="cart-items"></div>
+    <div class="cart-total">
+      <div id="cart-total"></div>
+    </div>
+  </div>
+  
+  <footer>
+    <p>© 2025 Besa Ventures. Quality Electronics Worldwide | USA & Mexico Operations</p>
+  </footer>
+  
+  <script src="./js/main.js"></script>
 </body>
 </html>
