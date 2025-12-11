@@ -453,3 +453,88 @@
 
         .form-group input,
         .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--accent);
+        background: var(--secondary);
+        color: var(--text);
+        font-size: 1rem;
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>Besa Ventures</h1>
+                <p>Premium PCB Solutions & Electronics</p>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container">
+            <section class="hero">
+                <h2>Welcome to Besa Ventures</h2>
+                <p>Your trusted partner for high-quality PCB solutions and electronic components</p>
+                <button class="btn btn-primary">Explore Products</button>
+            </section>
+        </div>
+    </section>
+
+    <section class="products-section">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <h3>PCB Manufacturing</h3>
+                    <p>High-precision PCB boards for various applications</p>
+                    <span class="price">$50 - $500</span>
+                </div>
+                <div class="product-card">
+                    <h3>Component Assembly</h3>
+                    <p>Expert component placement and soldering services</p>
+                    <span class="price">$100 - $1000</span>
+                </div>
+                <div class="product-card">
+                    <h3>Electronic Components</h3>
+                    <p>Wide range of quality electronic components in stock</p>
+                    <span class="price">$10 - $500</span>
+                </div>
+                <div class="product-card">
+                    <h3>Design Services</h3>
+                    <p>Professional PCB design and layout services</p>
+                    <span class="price">$200 - $5000</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Besa Ventures. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
