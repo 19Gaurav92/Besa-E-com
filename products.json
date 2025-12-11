@@ -1,0 +1,28 @@
+[
+  {
+    "id": "pcb-proto-2layer",
+    "title": "Prototype 2-Layer PCB",
+    "price": 120,
+    "currency": "USD",
+    "lead_time": "7-10 business days",
+    "min_order": "1",
+    "description": "FR4 2-layer prototype PCB. ENIG finish available.",
+    "image": "https://static.wixstatic.com/media/f8b0ec428eee445ba98b2284266b34db.jpg",
+    "company": "Besa Ventures",
+    "company_email": "info@besaventures.com",
+    "company_address": "44845 Fremont Blvd, Fremont, CA 94538, USA"
+  },
+  {
+    "id": "pcb-multilayer",
+    "title": "Multilayer PCB (4-layer)",
+    "price": 420,
+    "currency": "USD",
+    "lead_time": "10-15 business days",
+    "min_order": "5",
+    "description": "High-density 4-layer PCB with controlled impedance.",
+    "image": "https://static.wixstatic.com/media/ff94a6c09aff4ad2961bea46a1afad37.jpg",
+    "company": "Besa Ventures",
+    "company_email": "info@besaventures.com",
+    "company_address": "44845 Fremont Blvd, Fremont, CA 94538, USA"
+  }
+]
